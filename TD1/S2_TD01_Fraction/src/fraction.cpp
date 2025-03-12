@@ -102,3 +102,10 @@ void Fraction ::operator/=(Fraction const& f) {
 }
 
 //* Exo 6
+float Fraction::to_float() const {
+    return static_cast<float>(numerator) / static_cast<float>(denominator);
+}
+
+Fraction::operator float() const {
+    return to_float();
+}
