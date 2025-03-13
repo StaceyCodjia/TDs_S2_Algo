@@ -1,4 +1,4 @@
-#include <iostream>
+#include "fonctions.hpp"
 
 enum class Operator { ADD, SUB, MUL, DIV};
 enum class TokenType { NUMBER, OPERATOR };
