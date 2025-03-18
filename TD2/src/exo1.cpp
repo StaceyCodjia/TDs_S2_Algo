@@ -9,7 +9,8 @@ int main(){
     std::getline(std::cin, npi); 
     std::vector<std::string> tokens = split_string(npi);
 
-    for (std::string token : tokens){
+    for (int i = 0; i < tokens.size(); i++){
+        std::string token = tokens[i];
         if (is_floating(token)){
             std::cout << "Nombre : " << token << std::endl;
         } else {
