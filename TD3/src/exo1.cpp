@@ -3,7 +3,7 @@
 
 
 int main(){
-
+    // Exo 1
     std::vector<int> array {6,4,2,1,3,5};
         std::cout << "Avant tri a bulle" << std::endl;
         if (is_sorted(array)) {
@@ -18,4 +18,5 @@ int main(){
             std::cout << array[i] << " ";
         }
     return 0;
+    
 }
