@@ -59,3 +59,10 @@ void affichage (const std::vector<float>& vec) {
     }
     std::cout << std::endl;
 }
+
+//Exo 3
+std::vector<int> generate_random_vector(size_t const size, int const max) {
+    std::vector<int> vec(size);
+    std::generate(vec.begin(), vec.end(), [&max]() { return std::rand() % max;} );
+    return vec;
+}

@@ -1,9 +1,9 @@
 #pragma once
 #include <vector>
-#include <algorithm>
-#include <vector>
 #include <string>
 #include <iostream>
+#include <cstdlib>
+#include <algorithm>
 
 bool is_sorted(std::vector<int> const& vec);
 
@@ -15,3 +15,6 @@ size_t quick_sort_partition(std::vector<float> & vec, size_t left, size_t right,
 void quick_sort(std::vector<float> & vec, size_t const left, size_t const right);
 void quick_sort(std::vector<float> & vec);
 void affichage(const std::vector<float>& vec);
+
+// Exo 3
+std::vector<int> generate_random_vector(size_t const size, int const max = 100);
