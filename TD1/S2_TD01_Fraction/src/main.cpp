@@ -84,5 +84,21 @@ int main()
     // Exo 6
     float floatNumber = static_cast<float>(f1);
     std::cout << "f1 en format de type float = " << floatNumber << std::endl;
-        return 0;
+
+    //Pour aller plus loin
+    int i = 2;
+
+    Fraction f4 = f1 + i;
+    std::cout << "f1 + i = " << f4 << std::endl;
+
+    Fraction f5 = i - f1;
+    std::cout << "i - f1 = " << f5 << std::endl;
+
+    Fraction f6 = f1 * i;
+    std::cout << "f1 * i = " << f6 << std::endl;
+
+    Fraction f7 = i / f1;
+    std::cout << "i / f1 = " << f7 << std::endl;
+    
+    return 0;
     }

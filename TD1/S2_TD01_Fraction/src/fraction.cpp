@@ -109,3 +109,38 @@ float Fraction::to_float() const {
 Fraction::operator float() const {
     return to_float();
 }
+
+//Pour aller plus loin
+Fraction operator+(Fraction const& f, int const i) {
+    return f + Fraction{i, 1};
+}
+
+Fraction operator+(int const i, Fraction const& f) {
+    return Fraction{i, 1} + f;
+}
+
+
+Fraction operator-(Fraction const& f, int const i) {
+    return f - Fraction{i, 1};
+}
+
+Fraction operator-(int const i, Fraction const& f) {
+    return Fraction{i, 1} - f;
+}
+
+
+Fraction operator*(Fraction const& f, int const i) {
+    return f * Fraction{i, 1};
+}
+
+Fraction operator*(int const i, Fraction const& f) {
+    return Fraction{i, 1} * f;
+}
+
+Fraction operator/(Fraction const& f, int const i) {
+    return f / Fraction{i, 1};
+}
+
+Fraction operator/(int const i, Fraction const& f) {
+    return Fraction{i, 1} / f;
+}
