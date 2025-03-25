@@ -18,3 +18,6 @@ void affichage(const std::vector<float>& vec);
 
 // Exo 3
 std::vector<int> generate_random_vector(size_t const size, int const max = 100);
+
+// Exo 4
+int search(std::vector<int> const& vec, int const value);

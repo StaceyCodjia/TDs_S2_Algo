@@ -22,3 +22,7 @@ int main(){
         std::sort(array.begin(), array.end());
     }
 }
+
+// On remarque que le std::sort (0.1185ms) est beaucoup plus rapide que le bubble_sort (19.5612ms).
+//Le bubble sort est lent car il fait beaucoup de comparaisons et d’échanges, 
+//tandis que std::sort est optimisé avec des algorithmes avancés qui réduisent ces opérations.

@@ -66,3 +66,22 @@ std::vector<int> generate_random_vector(size_t const size, int const max) {
     std::generate(vec.begin(), vec.end(), [&max]() { return std::rand() % max;} );
     return vec;
 }
+
+//Exo 4
+int search(const std::vector<int>& vec, int value){
+    int left = 0;
+    int right = vec.size()-1;
+    while (left <= right){
+        int middle = left + (right - left) / 2;
+        if (vec[middle] == value){
+            return middle;
+        }
+        else if (vec[middle] < value){
+            left = middle + 1;
+        }
+        else{
+            right = middle - 1;
+        }
+    }
+    return -1;
+}
