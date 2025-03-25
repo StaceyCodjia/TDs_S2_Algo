@@ -21,3 +21,6 @@ std::vector<int> generate_random_vector(size_t const size, int const max = 100);
 
 // Exo 4
 int search(std::vector<int> const& vec, int const value);
+
+//Pour aller plus loin
+void counting_sort(std::vector<int> & vec, int const max);

@@ -1,6 +1,5 @@
 #include "fonctions.hpp"
-#include <iostream>
-#include <vector>
+
 
 int main(){
 
@@ -9,7 +8,7 @@ int main(){
 
     //std::vector<int> vec = {1, 2, 3, 4, 5, 6, 7, 8, 9};
     //int value = 10;
-    
+
     int index = search(vec, value);
 
     if(index != -1){

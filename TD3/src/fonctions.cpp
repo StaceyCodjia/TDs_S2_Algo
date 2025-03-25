@@ -85,3 +85,18 @@ int search(const std::vector<int>& vec, int value){
     }
     return -1;
 }
+
+//Pour aller plus loin
+void counting_sort(std::vector<int> & vec, int const max){
+    std::vector<int> count(max + 1, 0);
+    for (int num : vec){
+        count[num]++;
+    }
+    size_t index = 0;
+    for(int i = 0; i <= max; i++){
+        while (count[i] > 0){
+            vec[index++] = i;
+            count[i]--;
+        }
+    }
+}
