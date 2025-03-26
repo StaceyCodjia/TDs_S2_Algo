@@ -7,10 +7,10 @@ int main(){
     std::sort(array.begin(), array.end());
 
 
-    // {
-    //     ScopedTimer timer(" quick_sort ");
-    //     quick_sort(array);
-    // }
+    {
+        ScopedTimer timer(" quick_sort ");
+        quick_sort(array);
+    }
 
     {
         ScopedTimer timer(" bubble_sort ");
@@ -24,5 +24,6 @@ int main(){
 }
 
 // On remarque que le std::sort (0.1185ms) est beaucoup plus rapide que le bubble_sort (19.5612ms).
+// Et légèrement plus rapide que le quick_sort (0.123ms).
 //Le bubble sort est lent car il fait beaucoup de comparaisons et d’échanges, 
 //tandis que std::sort est optimisé avec des algorithmes avancés qui réduisent ces opérations.

@@ -4,7 +4,7 @@
 
 int main(){
 
-    std::vector<float> vec {6.0,4.0,2.0,1.0,3.0,5.0};
+    std::vector<int> vec {6,4,2,1,3,5};
 
     std::cout << "Avant tri : ";
     affichage(vec);

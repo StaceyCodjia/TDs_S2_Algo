@@ -17,9 +17,9 @@ void bubble_sort(std::vector<int> & vec){
 }
 
 //Exo 2
-size_t quick_sort_partition (std::vector<float> & vec, size_t left, size_t right, size_t const pivot){
+size_t quick_sort_partition (std::vector<int> & vec, size_t left, size_t right, size_t const pivot){
     
-    float pivot_value = vec[pivot];
+    int pivot_value = vec[pivot];
 
     std::swap(vec[pivot], vec[right]); // On met le pivot à la fin
 
@@ -37,7 +37,7 @@ size_t quick_sort_partition (std::vector<float> & vec, size_t left, size_t right
     return store_index;
 }
 
-void quick_sort(std::vector<float> & vec, size_t const left, size_t const right){
+void quick_sort(std::vector<int> & vec, size_t const left, size_t const right){
 
     if (left < right){
         size_t pivot = left + (right - left) / 2;
@@ -49,12 +49,12 @@ void quick_sort(std::vector<float> & vec, size_t const left, size_t const right)
     }
 }
 
-void quick_sort(std::vector<float> & vec){
+void quick_sort(std::vector<int> & vec){
     quick_sort(vec, 0, vec.size()-1);
 }
 
-void affichage (const std::vector<float>& vec) {
-    for (float num : vec) {
+void affichage (const std::vector<int>& vec) {
+    for (int num : vec) {
         std::cout << num << " ";
     }
     std::cout << std::endl;
