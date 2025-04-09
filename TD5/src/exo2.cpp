@@ -1,35 +1,50 @@
 #include "fonctions.hpp"
 
 int main(){
-    // std::vector<int> counts = {10, 20, 30};
-    // std::vector<float> probabilities = probabilities_from_count(counts);
+  //1
+    std::vector<float> expected_insect_probabilities = probabilities_from_count(expected_insect_counts);
+    std::vector<std::pair<Insect, int>> observations = get_insect_observations(10000, expected_insect_probabilities, 40);
 
-    // std::cout << "Probabilitees = ";
-    // for (float prob : probabilities) {
+    std::unordered_map<Insect, int> filtered_insect_counts;
+//2
+    for (const auto& observation : observations) {
+        Insect insect_type = observation.first;
+        int insect_count = observation.second;
+        filtered_insect_counts[insect_type] += insect_count;
+    }
+//3
+   std::vector<int> filtered_insect_counts_vector;
+    filtered_insect_counts_vector.resize(filtered_insect_counts.size());
+   for (const auto& insect : filtered_insect_counts) {
+       for (int i = 0; i < insect_values.size(); i++) {
+          if (insect.first == insect_values[i]) {
+            filtered_insect_counts_vector[i] = insect.second;
+            //std::cout << filtered_insect_counts_vector.size() << std::endl;
+            break;
+          }
+       }
+    }
+    std::vector<float> my_observation_probabilities = probabilities_from_count(filtered_insect_counts_vector);
+    // std::cout << "Probabilities from counts: ";
+    // for (float prob : my_observation_probabilities) {
     //     std::cout << prob << " ";
     // }
-    std::cout << std::endl;
 
-    std::vector<float> insect_probabilities = {0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.6f, 0.7f, 0.8f, 0.9f, 1.0f, 1.1f};
-    size_t number_of_observations = 10000;
-    unsigned int seed = 42; 
-    std::vector<std::pair<Insect, int>> observations = get_insect_observations(
-        number_of_observations, insect_probabilities, seed);
+//4
 
-    std::unordered_map<Insect, int> insect_counts;
+for (size_t i = 0; i < insect_values.size(); i++) {
+    float difference = std::abs(expected_insect_probabilities[i] - my_observation_probabilities[i]);
+    std::string result = "OK";
+    if (difference > 0.01)
+        result = "PAS OK";
+    std::cout << insect_to_string.at(insect_values[i])  << " : " << expected_insect_probabilities[i] << " VS " << my_observation_probabilities[i] << " : " << result << std::endl;
+}
 
-    for (const auto& insect : insect_values) {
-        insect_counts[insect] = 0;
-    }
 
-    for (const auto& observation : observations) {
-        insect_counts[observation.first] += observation.second;
-    }
+    
 
-    std::cout << "Nombre d'individus pour chaque insecte :" << std::endl;
-    for (const auto& [insect, count] : insect_counts) {
-        std::cout << "Insecte " << static_cast<int>(insect) << ": " << count << " individus" << std::endl;
-    }
-
+    // Uncomment the following line to test the function with the expected counts
+    // std::vector<float> expected_probabilities =
+//probabilities_from_count(filtered_insect_counts)
     return 0;
 }

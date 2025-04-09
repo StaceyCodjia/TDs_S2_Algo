@@ -5,7 +5,7 @@
 size_t folding_string_hash(std::string const& s, size_t max) {
     size_t sum = 0;
     for (char c : s) {
-        sum += static_cast<size_t>(c); 
+        sum += static_cast<size_t>(c); // Convertit le caractère en entier
     }
     return sum % max; //Permet de ramener la valeur de hachage dans l'intervalle [0, max-1]
 }

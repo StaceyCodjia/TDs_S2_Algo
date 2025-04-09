@@ -35,20 +35,6 @@ enum class Insect {
     GuimielBee
 };
 
-std::vector<Insect> const insect_values {
-    Insect::ClassicBee,
-    Insect::Ladybug,
-    Insect::Butterfly,
-    Insect::Dragonfly,
-    Insect::Ant,
-    Insect::Grasshopper,
-    Insect::Beetle,
-    Insect::Wasp,
-    Insect::Caterpillar,
-    Insect::Spider,
-    Insect::GuimielBee
-};
-
 std::unordered_map<Insect, std::string> const insect_to_string = {
     {Insect::ClassicBee, "ClassicBee"},
     {Insect::Ladybug, "Ladybug"},
@@ -62,6 +48,21 @@ std::unordered_map<Insect, std::string> const insect_to_string = {
     {Insect::Spider, "Spider"},
     {Insect::GuimielBee, "GuimielBee"}
 };
+
+std::vector<Insect> const insect_values {
+    Insect::ClassicBee, //0
+    Insect::Ladybug, //1
+    Insect::Butterfly,
+    Insect::Dragonfly,
+    Insect::Ant,
+    Insect::Grasshopper,
+    Insect::Beetle,
+    Insect::Wasp,
+    Insect::Caterpillar,
+    Insect::Spider,
+    Insect::GuimielBee
+};
+
 
 std::vector<int> const expected_insect_counts {
     75, // ClassicBee
