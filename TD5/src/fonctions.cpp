@@ -80,4 +80,4 @@ std::vector<float> probabilities_from_count(std::vector<int> const& counts){
         }
     
         return probabilities;
-    }
+}
