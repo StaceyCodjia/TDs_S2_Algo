@@ -83,3 +83,48 @@ std::vector<std::pair<Insect, int>> get_insect_observations(
     unsigned int const seed = std::random_device{}()
 );
 std::vector<float> probabilities_from_count(std::vector<int> const& counts);
+
+//Exo 3
+enum class CardKind {
+    Heart,
+    Diamond,
+    Club,
+    Spade,
+};
+
+enum class CardValue {
+    Two,
+    Three,
+    Four,
+    Five,
+    Six,
+    Seven,
+    Eight,
+    Nine,
+    Ten,
+    Jack,
+    Queen,
+    King,
+    Ace,
+};
+
+struct Card {
+    CardKind kind;
+    CardValue value;
+
+    size_t hash() const;
+};
+
+bool operator==(const Card& Card1, const Card& Card2);
+
+namespace std {
+    template<>
+    struct hash<Card> {
+        size_t operator()(Card const& card) const {
+            return card.hash();
+        }
+    };
+}
+
+std::vector<Card> get_cards(size_t const size);
+std::string card_name(Card const& card);

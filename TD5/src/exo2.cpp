@@ -40,11 +40,8 @@ for (size_t i = 0; i < insect_values.size(); i++) {
     std::cout << insect_to_string.at(insect_values[i])  << " : " << expected_insect_probabilities[i] << " VS " << my_observation_probabilities[i] << " : " << result << std::endl;
 }
 
-
-    
-
     // Uncomment the following line to test the function with the expected counts
     // std::vector<float> expected_probabilities =
-//probabilities_from_count(filtered_insect_counts)
+    //probabilities_from_count(filtered_insect_counts)
     return 0;
 }
