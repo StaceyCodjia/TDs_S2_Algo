@@ -97,3 +97,90 @@ std::vector<Node const*> Node::prefix() const{
 
     return result;
 }
+
+std::vector<Node const*> Node::postfix() const {
+    std::vector<Node const*> result;
+
+    if (left != nullptr) {
+        std::vector<Node const*> left_postfix = left->postfix();
+        result.insert(result.end(), left_postfix.begin(), left_postfix.end());
+    }
+
+    if (right != nullptr) {
+        std::vector<Node const*> right_postfix = right->postfix();
+        result.insert(result.end(), right_postfix.begin(), right_postfix.end());
+    }
+
+    result.push_back(this);
+
+    return result;
+}
+
+Node*& Node::most_left(Node*& node) {
+    if (node->left) {
+        return most_left(node->left);
+    } else {
+        return node;
+    }
+}
+
+bool remove(Node*& node, int value){
+        if (node == nullptr) {
+            return false;
+        }
+        if (value < node->value) {
+
+            return remove(node->left, value);
+
+        } else if (value > node->value) {
+
+            return remove(node->right, value);
+
+        } else {
+            // Cas où le nœud est une feuille
+            if (node->is_leaf()) {
+                delete node;
+                node = nullptr;
+            } 
+            // Cas où le nœud a uniquement un sous-arbre
+            else if (node->left == nullptr) {
+                Node* temp = node;
+                node = node->right;
+                delete temp;
+            } else if (node->right == nullptr) {
+                Node* temp = node;
+                node = node->left;
+                delete temp;
+            } else {
+            // Cas où le nœud a deux sous-arbres
+                Node*& successor = node->most_left(node->right);
+                node->value = successor->value;
+                remove(successor, successor->value);
+            }
+            return true;
+        }
+    }
+
+void delete_tree(Node* node){
+    if (node == nullptr) {
+        return;
+    }
+    
+    delete_tree(node->left);
+    delete_tree(node->right);
+            
+    delete node;
+    node = nullptr;
+}
+int Node::min() const {
+    if (left == nullptr) {
+        return value;
+    }
+    return left->min();
+}
+int Node::max() const {
+    if (right == nullptr) {
+        return value;
+    }
+    return right->max();
+}
