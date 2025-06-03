@@ -33,3 +33,45 @@ Graph::WeightedGraph Graph::build_from_adjacency_matrix(std::vector<std::vector<
 
     return graph;
 }
+
+// Exo 2
+
+void Graph:: WeightedGraph::print_DFS(int const start) const{
+    std::stack<int> to_visit{};
+    std::set<int> visited;
+    visited.insert(start);
+    to_visit.push(start);
+    while (!to_visit.empty()){
+        int current = to_visit.top();
+        auto edge_adjacent = *(adjacency_list.find(current));
+        to_visit.pop();
+
+        std::cout << current << std::endl;
+        for (WeightedGraphEdge adjacent : std::get<1>(edge_adjacent)){
+            if (!visited.contains(adjacent.to)){
+                to_visit.push(adjacent.to);
+                visited.insert(adjacent.to);
+            }
+        }
+    }
+}
+
+void Graph:: WeightedGraph::print_BFS(int const start) const{
+    std::queue<int> to_visit{};
+    std::set<int> visited;
+    visited.insert(start);
+    to_visit.push(start);
+    while (!to_visit.empty()){
+        int current = to_visit.front();
+        auto edge_adjacent = *(adjacency_list.find(current));
+        to_visit.pop();
+
+        std::cout << current << std::endl;
+        for (WeightedGraphEdge adjacent : std::get<1>(edge_adjacent)){
+            if (!visited.contains(adjacent.to)){
+                to_visit.push(adjacent.to);
+                visited.insert(adjacent.to);
+            }
+        }
+    }
+}
